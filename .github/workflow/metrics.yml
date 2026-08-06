@@ -1,0 +1,20 @@
+name: Metrics
+on:
+  # Schedule updates (every 24 hours)
+  schedule:
+    - cron: "0 0 * * *"
+  # Allows manual trigger from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.classic.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: header, repositories
+          plugin_lines: yes
