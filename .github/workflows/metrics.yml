@@ -18,3 +18,10 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           base: header, repositories
           plugin_lines: yes
+          
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.plugin.calendar.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_calendar: yes
